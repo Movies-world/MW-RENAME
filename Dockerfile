@@ -1,5 +1,7 @@
-FROM python:3.10
+FROM python:latest
+RUN pip install --upgrade pip
 WORKDIR /app
-COPY . /app/
-RUN pip install -r requirements.txt
-CMD ["python", "bot.py"]
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+COPY . .
+CMD python3 bot.py
